@@ -1,0 +1,14 @@
+<!-- templates/home.html -->
+<!DOCTYPE html>
+{% block title %}Home{% endblock %}
+<form>
+  {% block content %}
+    {% if user.is_authenticated %}
+      Hi {{ user.username }}!
+      <button type="submit" name="run_script">make flashy lights</button>
+    {% else %}
+      <p>You are not logged in</p>
+      <a href="{% url 'login' %}">Log In</a>
+    {% endif %}
+  {% endblock %}
+</form>
